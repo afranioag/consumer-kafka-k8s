@@ -1,4 +1,4 @@
-port: 8080
+port: 8091
 
 server:
   port: ${port}
@@ -45,21 +45,21 @@ spring:
       hibernate:
         format_sql: true
 
-  kafka:
-    bootstrap-servers: localhost:9092
-    consumer:
-      group-id: csv-consumer-group
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      properties:
-        spring.json.trusted.packages: "*"
-    properties:
-      enable.auto.commit: false
-
-# Tópico Kafka
-kafka:
-  topic:
-    csv-data: pessoas-topic
+#  kafka:
+#    bootstrap-servers: localhost:9092
+#    consumer:
+#      group-id: csv-consumer-group
+#      auto-offset-reset: earliest
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+#      properties:
+#        spring.json.trusted.packages: "*"
+#    properties:
+#      enable.auto.commit: false
+#
+## Tópico Kafka
+#kafka:
+#  topic:
+#    csv-data: pessoas-topic
 
 
