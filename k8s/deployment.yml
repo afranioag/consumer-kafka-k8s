@@ -10,6 +10,11 @@ spec:
   selector:
     matchLabels:
       app: consumer-service
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
   template:
     metadata:
       labels:
@@ -17,10 +22,10 @@ spec:
     spec:
       containers:
         - name: consumer
-          image: consumer-service:v1.0.3  # ArgoCD/CI vai atualizar essa tag
-          imagePullPolicy: Never  # Usar imagem local do Minikube
+          image: consumer-service:v1.0.4
+          imagePullPolicy: Never
           ports:
-            - containerPort: 8081
+            - containerPort: 8082
               name: http
           env:
             - name: SPRING_PROFILES_ACTIVE
@@ -40,7 +45,7 @@ spec:
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
-              port: 8081
+              port: 8082
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 3
@@ -48,7 +53,7 @@ spec:
           readinessProbe:
             httpGet:
               path: /actuator/health/readiness
-              port: 8081
+              port: 8082
             initialDelaySeconds: 30
             periodSeconds: 5
             timeoutSeconds: 3
