@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: consumer
-          image: consumer-service:v1.0.2  # ArgoCD/CI vai atualizar essa tag
+          image: consumer-service:v1.0.0  # ArgoCD/CI vai atualizar essa tag
           imagePullPolicy: Never  # Usar imagem local do Minikube
           ports:
             - containerPort: 8081
