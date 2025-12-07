@@ -30,7 +30,7 @@ RUN chown -R spring:spring /app
 USER spring
 
 # Expor porta
-EXPOSE 8081
+EXPOSE 8082
 
 # Variável de ambiente para profile
 ENV SPRING_PROFILES_ACTIVE=prod
