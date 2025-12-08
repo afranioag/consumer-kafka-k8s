@@ -10,14 +10,14 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-//@Entity
+@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Pessoa {
 
-   // @Id
-   // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private Integer idade;
