@@ -61,4 +61,6 @@ management:
 #  topic:
 #    csv-data: pessoas-topic
 
-
+# Variável customizada que define onde está o serviço de notificação
+notification-service:
+  url: ${NOTIFICATION_URL:http://localhost:8083}
