@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: consumer
-          image: consumer-service:v1.0.11
+          image: consumer-service:v1.0.12
           imagePullPolicy: Never
           ports:
             - containerPort: 8082
@@ -32,6 +32,9 @@ spec:
               value: "prod"
             - name: SPRING_CONFIG_LOCATION
               value: "classpath:/application.yml,file:/config/application-prod.yml"
+            # AQUI A MÁGICA: Aponta para o Service do K8s e a porta dele
+            - name: NOTIFICATION_URL
+              value: "http://notification-service.production:8083"
           volumeMounts:
             - name: config
               mountPath: /config
