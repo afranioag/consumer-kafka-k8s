@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: consumer
-          image: consumer-service:v1.0.12
+          image: consumer-service:v1.0.13
           imagePullPolicy: Never
           ports:
             - containerPort: 8082
